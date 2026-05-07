@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Budget Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Smart money tracking</p>
+        <h1>Personal Budget Planner</h1>
+        <p class="subtitle">Track your income, expenses, and remaining balance in one clean dashboard.</p>
+      </div>
+      <div class="hero-card">
+        <p>Monthly Balance</p>
+        <h2 id="balanceAmount">0.00</h2>
+        <span id="balanceStatus">Start by adding a transaction.</span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <h3>Add Transaction</h3>
+        <form id="budgetForm" class="budget-form">
+          <label>
+            Title
+            <input type="text" id="title" placeholder="Salary, Rent, Groceries" required>
+          </label>
+
+          <label>
+            Amount
+            <input type="number" id="amount" placeholder="Enter amount" min="0" step="0.01" required>
+          </label>
+
+          <label>
+            Type
+            <select id="type" required>
+              <option value="income">Income</option>
+              <option value="expense">Expense</option>
+            </select>
+          </label>
+
+          <label>
+            Category
+            <select id="category" required>
+              <option value="Salary">Salary</option>
+              <option value="Freelance">Freelance</option>
+              <option value="Food">Food</option>
+              <option value="Transport">Transport</option>
+              <option value="Rent">Rent</option>
+              <option value="Bills">Bills</option>
+              <option value="Shopping">Shopping</option>
+              <option value="Savings">Savings</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+
+          <button type="submit">Add Transaction</button>
+        </form>
+      </section>
+
+      <section class="panel summary-panel">
+        <h3>Budget Summary</h3>
+        <div class="summary-grid">
+          <article class="summary-card income">
+            <p>Total Income</p>
+            <strong id="incomeAmount">0</strong>
+          </article>
+          <article class="summary-card expense">
+            <p>Total Expenses</p>
+            <strong id="expenseAmount">0</strong>
+          </article>
+          <article class="summary-card neutral">
+            <p>Transactions</p>
+            <strong id="transactionCount">0</strong>
+          </article>
+        </div>
+
+        <div class="category-box">
+          <div class="section-title">
+            <h4>Category Breakdown</h4>
+            <button id="clearAll" class="ghost-button" type="button">Clear All</button>
+          </div>
+          <ul id="categoryList" class="category-list"></ul>
+        </div>
+      </section>
+    </main>
+
+    <section class="panel">
+      <div class="section-title">
+        <h3>Transaction History</h3>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Category</th>
+              <th>Type</th>
+              <th>Amount</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="transactionList"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Budget Planner</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    </body>
+</html>
